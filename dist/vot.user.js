@@ -25495,6 +25495,7 @@ initVOTClient() {
             },
             apiToken: this.data?.account?.token,
             hostVOT: votBackendUrl,
+			hostVOTFallback: votConfig.hostVOTFallback,
             host: this.data?.translateProxyEnabled ? this.data?.proxyWorkerHost ?? proxyWorkerHost : workerHost
           };
           this.votClient = new (this.data?.translateProxyEnabled ? VOTWorkerClient2 : VOTClient2)(this.votOpts);

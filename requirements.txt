@@ -1,0 +1,7 @@
+yt-dlp
+playwright
+nest_asyncio
+moviepy
+openai-whisper
+googletrans==4.0.0-rc1
+gtts

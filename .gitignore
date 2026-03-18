@@ -1,0 +1,18 @@
+# Исключаем папку .idea (настройки IDE)
+.idea/
+.idea/*
+
+# Исключаем папку __pycache__ (скомпилированные файлы Python)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Исключаем папку videos
+videos/
+videos/*
+
+# Дополнительные полезные исключения для Python проекта
+venv/
+venv/*
+EOF

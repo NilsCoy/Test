@@ -18,10 +18,6 @@ sudo apt-get install -y \
     libpango-1.0-0 \
     libgtk-3-0
 
-echo "Installing Python dependencies..."
-
-pip install -r requirements.txt
-
 echo "Installing Playwright browsers..."
 
 playwright install --with-deps

@@ -74,8 +74,12 @@ make run-file FILE="input.mp4" OUTPUT="out.mp4" --TRANSLATOR="v2"
 
 #### URL:
 
-python -m scripts.main --input "https://example.com/video" --output "out.mp4"
+```bash
+python -m scripts.main --input "https://example.com/video" --output "out.mp4" --translator "v1"
+```
 
 #### Локальный файл:
 
-python -m scripts.main --input "videos/input.mp4" --output "out.mp4"
+```bash
+python -m scripts.main --input "videos/input.mp4" --output "out.mp4" --translator "v1"
+```

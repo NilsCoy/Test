@@ -55,19 +55,19 @@ make setup-linux
 #### 1. Перевод видео по URL
 
 ```bash
-make run-url INPUT="https://example.com/video" OUTPUT="out.mp4" --TRANSLATOR="v1"
+make run-url INPUT="https://example.com/video" OUTPUT="out.mp4" TRANSLATOR="v1"
 ```
 
 #### 2. Перевод локального видео
 
 ```bash
-make run-file FILE="input.mp4" OUTPUT="out.mp4" --TRANSLATOR="v1"
+make run-file FILE="input.mp4" OUTPUT="out.mp4" TRANSLATOR="v1"
 ```
 
 #### 3. Использовать альтернативный переводчик (v2)
 
 ```bash
-make run-file FILE="input.mp4" OUTPUT="out.mp4" --TRANSLATOR="v2"
+make run-file FILE="input.mp4" OUTPUT="out.mp4" TRANSLATOR="v2"
 ```
 
 ### Через Python напрямую
@@ -75,11 +75,25 @@ make run-file FILE="input.mp4" OUTPUT="out.mp4" --TRANSLATOR="v2"
 #### URL:
 
 ```bash
-python -m scripts.main --input "https://example.com/video" --output "out.mp4" --translator "v1"
+python -m main --input "https://example.com/video" --output "out.mp4" --translator "v1"
 ```
 
 #### Локальный файл:
 
 ```bash
-python -m scripts.main --input "videos/input.mp4" --output "out.mp4" --translator "v1"
+python -m main --input "videos/input.mp4" --output "out.mp4" --translator "v1"
+```
+
+### Скачивание и перевод видео списком
+
+#### Make:
+
+```bash
+make run-batch JSON=translate_videos.json TRANSLATOR=v1 OUTPUT_DIR=outputs
+```
+
+#### Через Python напрямую:
+
+```bash
+python batch_translate.py --json translate_videos.json --translator v1 --output-dir outputs
 ```

@@ -16,3 +16,7 @@ run-url:
 # ЛОКАЛЬНЫЙ ФАЙЛ
 run-file:
 	$(PYTHON) -m main --input "$(FILE)" --output "$(OUTPUT)" --translator "$(TRANSLATOR)"
+
+# МАССОВЫЙ ПЕРЕВОД ИЗ JSON
+run-batch:
+	$(PYTHON) batch_translate.py --json "$(JSON)" --translator "$(TRANSLATOR)" --output-dir "$(OUTPUT_DIR)"

@@ -9,6 +9,7 @@ from gtts import gTTS
 from moviepy import VideoFileClip, AudioFileClip
 
 def translate_v1(video_path: str, output_video: str) -> str:
+    """Перевод полученного видео"""
     #video_path = "video.mp4"
     audio_path = "videos/temp/audio.wav"
     voice_path = "videos/temp/voice.mp3"
@@ -58,6 +59,7 @@ from moviepy import VideoFileClip, AudioFileClip, concatenate_audioclips
 import contextlib
 
 def translate_v2(video_path: str, output_video: str) -> str:
+    """Перевод полученного видео частями, чтобы речь была синхронна с видео"""
     #video_path = "video.mp4"
     temp_dir = "videos/temp/temp_audio"
     audio_path = "videos/temp/audio.wav"

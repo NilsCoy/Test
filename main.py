@@ -3,17 +3,18 @@ from scripts.pipeline import run_pipeline
 
 
 def main():
+    """Запуск кода из cmd"""
     parser = argparse.ArgumentParser(description="Video translate pipeline")
 
     parser.add_argument("--input", required=True, help="Video URL or local file")
     parser.add_argument("--output", required=True, help="Output video path")
 
-    parser.add_argument(
-        "--downloader",
-        choices=["yt_dlp", "playwright"],
-        default="yt_dlp",
-        help="Download method",
-    )
+    # parser.add_argument(
+    #     "--downloader",
+    #     choices=["yt_dlp", "playwright"],
+    #     default="playwright",
+    #     help="Download method",
+    # )
 
     parser.add_argument(
         "--translator",
@@ -27,7 +28,7 @@ def main():
     run_pipeline(
         input_path=args.input,
         output_path=args.output,
-        downloader=args.downloader,
+        #downloader=args.downloader,
         translator=args.translator,
     )
 

@@ -6,6 +6,7 @@
 import yt_dlp
 
 def yt_dlp_download(url: str) -> str:
+    """Быстрое скачивание через yt_dlp"""
     #url = "https://learn.deeplearning.ai/courses/a2a-the-agent2agent-protocol/lesson/vtf72ap4/introduction"
 
     DOWNLOAD_DIR = "videos"
@@ -34,6 +35,8 @@ from playwright.async_api import async_playwright
 import nest_asyncio
 
 def playwright_download(url: str) -> str:
+    """Долгое скачивание через batch"""
+    #url = "https://anthropic.skilljar.com/claude-code-in-action/303239"
     DOWNLOAD_DIR = "videos"
     os.makedirs(DOWNLOAD_DIR, exist_ok=True)
 
@@ -41,8 +44,9 @@ def playwright_download(url: str) -> str:
     result_file = {"path": None}
 
     async def download_and_convert(video_url):
+        """Использование ffmpeg для создания видео"""
         filename = os.path.join(DOWNLOAD_DIR, "video.mp4")
-        mp3_file = os.path.join(DOWNLOAD_DIR, "audio.mp3")
+        # mp3_file = os.path.join(DOWNLOAD_DIR, "audio.mp3")
 
         print(f"\nDownloading: {video_url}")
 
@@ -55,23 +59,22 @@ def playwright_download(url: str) -> str:
             filename
         ])
 
-        print("Converting to mp3...")
+        # print("Converting to mp3...")
+        #
+        # subprocess.run([
+        #     "ffmpeg",
+        #     "-y",
+        #     "-i", filename,
+        #     "-q:a", "0",
+        #     "-map", "a",
+        #     mp3_file
+        # ])
 
-        subprocess.run([
-            "ffmpeg",
-            "-y",
-            "-i", filename,
-            "-q:a", "0",
-            "-map", "a",
-            mp3_file
-        ])
-
-        print("Done:", mp3_file)
-
-        # сохраняем итоговый файл
-        result_file["path"] = mp3_file
+        print("Done:", filename)
+        result_file["path"] = filename
 
     async def run():
+        """Поиск и скачивание видео"""
         async with async_playwright() as p:
             browser = await p.chromium.launch(headless=True)
             page = await browser.new_page()
@@ -89,7 +92,7 @@ def playwright_download(url: str) -> str:
             page.on("request", handle_request)
 
             await page.goto(url)
-            await page.wait_for_timeout(5000)
+            await page.wait_for_timeout(3000)
 
             try:
                 await page.click('[aria-label="Play"]')

@@ -3,7 +3,7 @@ from playwright.sync_api import sync_playwright
 import json
 import argparse
 
-def login(url):
+def login(url: str):
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)
         context = browser.new_context()

@@ -5,7 +5,7 @@ from urllib.parse import urljoin, urlparse, urlunparse
 import json
 import argparse
 
-def find_videos(page, base_url):
+def find_videos(page, base_url: str) -> set:
     """
     Ищет любое видео со страницы.
     Поддерживаются mp4, webm, m3u8.
@@ -24,7 +24,7 @@ def find_videos(page, base_url):
     return video_urls
 
 
-def get_links(page, base_url):
+def get_links(page, base_url: str) -> set:
     """
     Собирает все ссылки с текущей страницы, только с того же домена.
     Поддерживаются <a>, <img>, <script>, <iframe>.
@@ -54,7 +54,7 @@ def get_links(page, base_url):
 
     return links
 
-def crawl(start_url, max_pages=10, file_path = "videos.json"):
+def crawl(start_url: str, max_pages=10, file_path = "videos.json"):
     """
     Идет по странице и ищет видео на них.
     """

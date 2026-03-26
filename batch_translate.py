@@ -41,12 +41,11 @@ def load_video_urls(json_path: str) -> dict:
         print(f"[ERROR] Файл не найден: {json_path}")
         exit(1)
 
-
 def run_translation(input_url: str, output_file: Path, translator: str):
     """Запуск перевода одного видео"""
     command = [
         "make",
-        "run-url",
+        "translate",
         f"INPUT={input_url}",
         f"OUTPUT={output_file}",
         f"TRANSLATOR={translator}",

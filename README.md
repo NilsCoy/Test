@@ -1,6 +1,14 @@
-# Translate Video
+# 🗺️ Translate Video
 
 Проект позволяет скачивать видео с сайтов или использовать локальные видео, автоматически распознавать речь, переводить её на русский язык и генерировать озвучку, создавая готовое видео с переводом.
+
+---
+
+## 📄 Основные функции
+
+- Перевод видео по ссылке или через локальный файл
+- Перевод видео списком (json)
+- Поиск ссылок с видео на конкретном сайте
 
 ---
 
@@ -50,38 +58,38 @@ make setup-linux
 
 ## ⚡ Использование
 
-### Через Makefile
+### Перевод через Makefile
 
 #### 1. Перевод видео по URL
 
 ```bash
-make run-url INPUT="https://example.com/video" OUTPUT="out.mp4" TRANSLATOR="v1"
+make translate INPUT="https://example.com/video" OUTPUT="out.mp4" TRANSLATOR="v1"
 ```
 
 #### 2. Перевод локального видео
 
 ```bash
-make run-file FILE="input.mp4" OUTPUT="out.mp4" TRANSLATOR="v1"
+make translate FILE="input.mp4" OUTPUT="out.mp4" TRANSLATOR="v1"
 ```
 
 #### 3. Использовать альтернативный переводчик (v2)
 
 ```bash
-make run-file FILE="input.mp4" OUTPUT="out.mp4" TRANSLATOR="v2"
+make translate FILE="input.mp4" OUTPUT="out.mp4" TRANSLATOR="v2"
 ```
 
-### Через Python напрямую
+### Перевод через Python напрямую
 
 #### URL:
 
 ```bash
-python -m main --input "https://example.com/video" --output "out.mp4" --translator "v1"
+python -m translate --input "https://example.com/video" --output "out.mp4" --translator "v1"
 ```
 
 #### Локальный файл:
 
 ```bash
-python -m main --input "videos/input.mp4" --output "out.mp4" --translator "v1"
+python -m translate --input "videos/input.mp4" --output "out.mp4" --translator "v1"
 ```
 
 ### Скачивание и перевод видео списком
@@ -95,7 +103,7 @@ make run-batch JSON="translate_videos.json" TRANSLATOR="v1" OUTPUT_DIR="outputs"
 #### Через Python напрямую:
 
 ```bash
-python batch_translate.py --json "translate_videos.json" --translator "v1" --output-dir "outputs"
+python -m  batch_translate --json "translate_videos.json" --translator "v1" --output-dir "outputs"
 ```
 
 ### Получение списка видео через crawling:
@@ -109,7 +117,7 @@ make search-videos URL="https://example.com" OUTPUT="videos.json" MAX_PAGES=10
 #### Через Python напрямую:
 
 ```bash
-python search_videos.py --url "https://example.com" --output "videos.json" --max-pages 10
+python -m search_videos --url "https://example.com" --output "videos.json" --max-pages 10
 ```
 
 ### Сохранение cookies для доступа к сайтам:
@@ -123,5 +131,5 @@ make save-cookies URL="https://example.com"
 #### Через Python напрямую:
 
 ```bash
-python save_cookies.py --url "https://example.com"
+python -m save_cookies --url "https://example.com"
 ```

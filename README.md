@@ -103,7 +103,7 @@ make run-batch JSON="translate_videos.json" TRANSLATOR="v1" OUTPUT_DIR="outputs"
 #### Через Python напрямую:
 
 ```bash
-python -m  batch_translate --json "translate_videos.json" --translator "v1" --output-dir "outputs"
+python -m batch_translate --json "translate_videos.json" --translator "v1" --output-dir "outputs"
 ```
 
 ### Получение списка видео через crawling:

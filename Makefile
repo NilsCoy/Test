@@ -20,3 +20,11 @@ run-file:
 # МАССОВЫЙ ПЕРЕВОД ИЗ JSON
 run-batch:
 	$(PYTHON) batch_translate.py --json "$(JSON)" --translator "$(TRANSLATOR)" --output-dir "$(OUTPUT_DIR)"
+
+# ПОИСК ВСЕХ ВИДЕО НА САЙТЕ
+search-videos:
+	$(PYTHON) search_videos.py --url "$(URL)" --output "$(OUTPUT)" --max-pages "$(MAX_PAGES)"
+
+# СОХРАНЕНИЕ COOKIE ДЛЯ САЙТОВ
+save-cookies:
+	$(PYTHON) save_cookies.py --url "$(URL)"

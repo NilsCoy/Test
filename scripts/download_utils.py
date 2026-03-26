@@ -33,6 +33,7 @@ import os
 import subprocess
 from playwright.async_api import async_playwright
 import nest_asyncio
+import json
 
 def playwright_download(url: str) -> str:
     """Долгое скачивание через batch"""
@@ -77,7 +78,15 @@ def playwright_download(url: str) -> str:
         """Поиск и скачивание видео"""
         async with async_playwright() as p:
             browser = await p.chromium.launch(headless=True)
+            context = await browser.new_context()
             page = await browser.new_page()
+
+            try:
+                with open("cookies.json", "r", encoding="utf-8") as f:
+                    cookies = json.load(f)
+                context.add_cookies(cookies)
+            except Exception as e:
+                print(f"Ошибка загрузки cookies: {e}")
 
             async def handle_request(request):
                 req_url = request.url

@@ -89,11 +89,39 @@ python -m main --input "videos/input.mp4" --output "out.mp4" --translator "v1"
 #### Make:
 
 ```bash
-make run-batch JSON=translate_videos.json TRANSLATOR=v1 OUTPUT_DIR=outputs
+make run-batch JSON="translate_videos.json" TRANSLATOR="v1" OUTPUT_DIR="outputs"
 ```
 
 #### Через Python напрямую:
 
 ```bash
-python batch_translate.py --json translate_videos.json --translator v1 --output-dir outputs
+python batch_translate.py --json "translate_videos.json" --translator "v1" --output-dir "outputs"
+```
+
+### Получение списка видео через crawling:
+
+#### Make:
+
+```bash
+make search-videos URL="https://example.com" OUTPUT="videos.json" MAX_PAGES=10
+```
+
+#### Через Python напрямую:
+
+```bash
+python search_videos.py --url "https://example.com" --output "videos.json" --max-pages 10
+```
+
+### Сохранение cookies для доступа к сайтам:
+
+#### Make:
+
+```bash
+make save-cookies URL="https://example.com"
+```
+
+#### Через Python напрямую:
+
+```bash
+python save_cookies.py --url "https://example.com"
 ```

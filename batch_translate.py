@@ -9,7 +9,7 @@ def parse_args():
 
     parser.add_argument(
         "--json",
-        default="translate_videos.json",
+        default="exampl_videos.json",
         help="Путь к JSON файлу со ссылками",
     )
 

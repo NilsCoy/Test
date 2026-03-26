@@ -18,4 +18,6 @@ venv/*
 *.mp3
 *.mp4
 *.wav
+cookies.json
+videos.json
 EOF
